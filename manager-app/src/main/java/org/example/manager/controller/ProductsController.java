@@ -6,9 +6,7 @@ import org.example.manager.entity.Product;
 import org.example.manager.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -31,7 +29,6 @@ public class ProductsController {
     @PostMapping("create")
     public String createProduct(NewProductPayload payload) {
         Product product = this.productService.createProject(payload.title(), payload.details());
-
-        return "redirect:/catalogue/products/list";
+        return "redirect:/catalogue/products/%d".formatted(product.getId());
     }
 }
