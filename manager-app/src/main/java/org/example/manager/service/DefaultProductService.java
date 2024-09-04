@@ -21,7 +21,7 @@ public class DefaultProductService implements ProductService {
     }
 
     @Override
-    public Product createProject(String title, String details) {
+    public Product createProduct(String title, String details) {
         return this.productRepository.save(new Product(null, title, details));
 
     }
